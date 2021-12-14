@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link href="style/stylesheet.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navContainer">
+            <a id="homeNav" href="index.html">Home</a>
+            <a href="index.html#aboutMe">About Me</a>
+            <a href="index.html#myHobbies">My Hobbies</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="resume.html">Resume</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <div id="app">
+        <article>
+            <h2>Gallery</h2>
+            <section class="petsContainer">
+                <h3>Pets</h3>
+                <h4>click on each image for more!</h4>
+                <div class="petBox">
+                    <figure class="polygon">
+                    <img :src="augieHover" class="clipped" v-on:click="aShow=!aShow" @mouseover="aHover = true" @mouseleave="aHover = false" 
+                    alt="A picture of my Australian Shepherd, Augie."/>
+                    </figure>
+                    <transition name="fade">
+                        <figcaption v-if="aShow">
+                            My Australian Shepherd, Augie!
+                        <figcaption>
+                    </transition>
+                </div>
+                <div class="petBox">
+                    <figure class="polygon">
+                        <img :src="dukeHover" class="clipped" v-on:click="dShow=!dShow" @mouseover="dHover = true" @mouseleave="dHover = false" 
+                        alt="A picture of my Bernese Mountain Dog, Duke."/>
+                    </figure>
+                    <transition name="fade">
+                        <figcaption v-if="dShow">
+                            My Bernese Mountain dog, Duke!
+                        <figcaption>
+                    </transition>
+                </div>
+            </section>
+        </article>
+    </div>
+    <script>
+        // Creates a new Vue page.
+        var app = new Vue ({
+            // Specifies the Vue element.
+            el: '#app',
+            // Computed methods are placed under the computed property.
+            computed: {
+                // Displays an image and displays a different image when hovered over.
+                augieHover() {
+                    // If the image is being hovered over, augie2 is displayed
+                    if (this.aHover == true) {
+                        return this.augie2
+                        // Else augie1 is displayed
+                    } else {
+                        return this.augie1
+                    }
+                },
+                dukeHover() {
+                    if (this.dHover == true) {
+                        return this.duke2
+                    } else {
+                        return this.duke1
+                    }
+                }
+            },
+            data () {
+                return {
+                    // Images of my dog Duke are assigned as properties.
+                    augie1: './images/augie1.PNG',
+                    augie2: './images/augie2.PNG',
+                    duke1: './images/duke1.PNG',
+                    duke2: './images/duke2.PNG',
+                    // Boolean value to be changed when hovering occurs.
+                    aHover: false,
+                    dHover: true,
+                    // Boolean value to be changes when clicking occurs.
+                    aShow: false,
+                    dShow: false
+                }
+            },
+        })
+    </script>
+</body>
+</html>

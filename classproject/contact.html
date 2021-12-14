@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link href="style/stylesheet.css" rel="stylesheet">
+    <script src="script/formvalidation.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav class="navContainer">
+            <a id="homeNav" href="index.html">Home</a>
+            <a href="index.html#aboutMe">About Me</a>
+            <a href="index.html#myHobbies">My Hobbies</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="resume.html">Resume</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <section>
+        <form id="contactForm" name="contactForm" class="formContainer" action="" method="" novalidate>
+            <h2>Contact</h2>
+            <label for="firstName">First Name *</label>
+            <p><input type="text" name="firstName" id="firstName" required></p>
+            <p><span id=firstNameError></span></p>
+            <label for="lastName">Last Name *</label>
+            <p><input type="text" name="lastName" id="lastName" required></p>
+            <p><span id=lastNameError></span></p>
+            <label for="email">Email Address *</label>
+            <p><input type="email" name="email" id="email" required></p>
+            <p><span id="emailError"></span></p>
+            <label for="message">Message *</label>
+            <p><textarea name="message" id="message" cols="50" rows="5" required></textarea></p>
+            <p><span id="messageError"></span></p>
+            <button>Submit</button>
+        </form>
+    </section>
+</body>
+</html>
